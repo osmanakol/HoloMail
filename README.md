@@ -1,2 +1,2 @@
 # HoloMail
-You send a lot of mail easily
+You can send a lot of mail easily
