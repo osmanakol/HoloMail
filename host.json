@@ -1,8 +1,0 @@
-{
-    "host":"127.0.0.1",
-    "port": 3002,
-    "__static":"./static",
-    "mongoURIString":"mongodb+srv://admin:eAvct9NVBpXOCklh@cluster0-pspbl.mongodb.net/Mailing"  
-}
- 
-
