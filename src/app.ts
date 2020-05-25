@@ -1,20 +1,44 @@
-import express from 'express'
-import path from "path";
+import express,{Application} from 'express'
 import  bodyParser from "body-parser";
 import methodOverride from 'method-override'
-const {host,port,__static} = require('../host.json')
+import { ApiRoutes } from "./routes/api-routes";
+import {host,port,__static} from "../host.json"
 
-const app = express();
 
-app.use(express.static(__static))
-app.use(methodOverride('_method'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({
-    extended:true
-}))
 
-const port2 = process.env.PORT || port;
+class App{
 
-app.listen(port2, () => {
-    console.log(`Server Çalışıyor, http://${host}:${port2}`)
-})
+    public app:Application;
+    public router:express.Router;
+
+    constructor(){
+        this.app = express();
+        this.router= express.Router();
+        this.config();
+        this.routeConfig();
+        this.mongoSetup();
+    }
+
+    private config = ()=>{
+        this.app.use(express.static(__static));
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({extended:true}));
+
+    }
+
+    private routeConfig = ()=>{
+        this.app.use("/api",new ApiRoutes(this.app).Routes());
+    }
+
+    private mongoSetup =()=>{
+
+    }
+}
+
+export default new App().app;
+
+// const port2 = process.env.PORT || port;
+
+// app.listen(port2, () => {
+//     console.log(`Server Çalışıyor, http://${host}:${port2}`)
+// })
