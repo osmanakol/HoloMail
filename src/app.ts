@@ -27,7 +27,7 @@ class App{
     }
 
     private routeConfig = ()=>{
-        this.app.use("/api",new ApiRoutes(this.app).Routes());
+        this.app.use('/api',new ApiRoutes(this.router).Routes());
     }
 
     private mongoSetup =()=>{
