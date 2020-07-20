@@ -1,8 +1,11 @@
 import express,{ Request,Response } from "express";
+import { MailController } from "../controller/MailController";
 
 export class ApiRoutes{
 
+    private mailController:MailController
     constructor(private router:express.Router){
+        this.mailController = new MailController();
         this.Routes()
     }
 
@@ -14,7 +17,9 @@ export class ApiRoutes{
                     message:"Welcome to HoloMail"
                 })
             })
-
+        this.router.route("/account/verify")
+            .get()
+            .post()
         return this.router;
     }
 }

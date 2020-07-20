@@ -90,7 +90,6 @@ body {
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-
   }
 
   .quotes .bg {
@@ -107,7 +106,7 @@ body {
   }
 
   .quotes .box.box1:hover,
-  .quotes .box.box1:hover~.bg{
+  .quotes .box.box1:hover~ .bg{
     opacity: 1;
     background: #e2a9e5;
     background: -moz-linear-gradient(-45deg, #e2a9e5 15%, #2b94e5 100%); 
@@ -117,7 +116,7 @@ body {
   }
 
   .quotes .box.box2:hover,
-  .quotes .box.box2:hover~.bg {
+  .quotes .box.box2:hover~ .bg {
     opacity: 1;
     background: #632c65;
     background: -moz-linear-gradient(-45deg, #632c65 15%, #56a5e2 100%);
